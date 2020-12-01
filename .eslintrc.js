@@ -4,15 +4,19 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: ["google", "prettier"],
-  parser: "@typescript-eslint/parser",
+  extends: ['airbnb', 'prettier', 'prettier/react'],
   parserOptions: {
     ecmaVersion: 12,
-    sourceType: "module",
+    sourceType: 'module',
     objectCurlySpacing: false,
   },
-  plugins: ["@typescript-eslint", "prettier"],
+  plugins: ['prettier'],
   rules: {
-    "prettier/prettier": ["error"],
+    'react/prop-types': 'off',
+    'prettier/prettier': ['error'],
+    'react/jsx-filename-extension': [
+      2,
+      { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
+    ],
   },
-}
+};

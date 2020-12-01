@@ -1,3 +1,4 @@
+/* global __PATH_PREFIX__ */
 import React from 'react';
 import { Link } from 'gatsby';
 
@@ -14,15 +15,15 @@ const Layout = ({ location, title, children }) => {
     );
   } else {
     header = (
-      <Link className="header-link-home" to="/">
+      <Link className="main-heading header-link-home" to="/">
         {title}
       </Link>
     );
   }
 
   return (
-    <div className="global-wrapper" data-is-root-path={isRootPath}>
-      <header className="global-header">{header}</header>
+    <div className="container bg-indigo-50" data-is-root-path={isRootPath}>
+      <header className="border-primary border-t-8 p-2">{header}</header>
       <main>{children}</main>
       <footer>
         © {new Date().getFullYear()}, Built with

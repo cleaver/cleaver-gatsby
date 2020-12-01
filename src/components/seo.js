@@ -71,7 +71,9 @@ const SEO = ({ description, lang, meta, title }) => {
           content: metaDescription,
         },
       ].concat(meta)}
-    />
+    >
+      <body className="bg-indigo-50" />
+    </Helmet>
   );
 };
 

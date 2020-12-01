@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
 
-import Bio from '../components/bio';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 
@@ -17,22 +16,28 @@ const BlogPostTemplate = ({ data, location }) => {
         description={post.frontmatter.description || post.excerpt}
       />
       <article
-        className="blog-post"
+        className="py-4 px-6 md:py-8 md:px-12 mb-8 bg-white rounded-md shadow-md"
         itemScope
         itemType="http://schema.org/Article"
       >
-        <header>
-          <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <p>
+        <header className="mb-3">
+          <h1
+            itemProp="headline"
+            className="font-display font-bold text-3xl mb-4 mt-0 text-primary"
+          >
+            {post.frontmatter.title}
+          </h1>
+          <small className="byline">
             by {post.frontmatter.author} on {post.frontmatter.date}
-          </p>
+          </small>
         </header>
         <section
+          // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"
         />
         <hr />
-        <footer></footer>
+        <footer />
       </article>
       <nav className="blog-post-nav">
         <ul
