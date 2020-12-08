@@ -28,6 +28,18 @@ code {
   @apply text-sm rounded-md;
 }
 
+.cbcontainer {
+  @apply px-4 mx-auto;
+  max-width: 1280px;
+}
+
+.sidebar {
+  width: 15rem;
+  a {
+    @apply text-primary hover:underline;
+  }
+}
+
 .main-heading {
   color: rgba(0, 168, 255, 0.5);
   font-family: 'Impact', 'Helvetica Neue', 'helvetica', 'Arial', sans-serif;

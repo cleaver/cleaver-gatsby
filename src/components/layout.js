@@ -22,9 +22,9 @@ const Layout = ({ location, title, children }) => {
   }
 
   return (
-    <div className="container bg-indigo-50" data-is-root-path={isRootPath}>
+    <div className="cbcontainer bg-indigo-50" data-is-root-path={isRootPath}>
       <header className="border-primary border-t-8 p-2">{header}</header>
-      <main>{children}</main>
+      <main className="flex flex-col md:flex-row">{children}</main>
       <footer>
         © {new Date().getFullYear()}, Built with
         {` `}

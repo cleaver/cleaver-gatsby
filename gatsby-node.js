@@ -1,5 +1,7 @@
 const path = require(`path`);
 const { createFilePath } = require(`gatsby-source-filesystem`);
+const remark = require('remark');
+const remarkHTML = require('remark-html');
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
@@ -63,13 +65,27 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
 
   if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode });
+    const slugValue = createFilePath({ node, getNode });
 
     createNodeField({
       name: `slug`,
       node,
-      value,
+      value: slugValue,
     });
+    if (node.frontmatter && node.frontmatter.sidebar) {
+      const sidebarBody = node.frontmatter.sidebar.body;
+      if (sidebarBody) {
+        const sidebarHtml = remark()
+          .use(remarkHTML)
+          .processSync(sidebarBody)
+          .toString();
+        createNodeField({
+          name: `sidebar_body_html`,
+          node,
+          value: sidebarHtml,
+        });
+      }
+    }
   }
 };
 

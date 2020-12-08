@@ -24,55 +24,65 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
-      <ol style={{ listStyle: `none` }}>
-        {posts.map((post) => {
-          const title = post.frontmatter.title || post.fields.slug;
 
-          return (
-            <li key={post.fields.slug}>
-              <article
-                className="py-4 px-6 md:py-8 md:px-12 mb-8 bg-white rounded-md shadow-md"
-                itemScope
-                itemType="http://schema.org/Article"
-              >
-                <header className="mb-3">
-                  <h2 className="font-display font-bold text-3xl mb-4 mt-0 text-primary">
-                    <Link
-                      className="hover:underline"
-                      to={post.fields.slug}
-                      itemProp="url"
-                    >
-                      <span itemProp="headline">{title}</span>
-                    </Link>
-                  </h2>
-                  <small className="byline">{post.frontmatter.date}</small>
-                </header>
-                <section>
-                  <div
-                    className="text-md font-body"
-                    // eslint-disable-next-line react/no-danger
-                    dangerouslySetInnerHTML={{
-                      __html: post.excerpt || post.frontmatter.description,
-                    }}
-                    itemProp="description"
-                  />
-                </section>
-                <footer>
-                  <p className="mb-0">
-                    <Link
-                      to={post.fields.slug}
-                      itemProp="url"
-                      className="font-display hover:underline text-sm"
-                    >
-                      Read more...
-                    </Link>
-                  </p>
-                </footer>
-              </article>
-            </li>
-          );
-        })}
-      </ol>
+      <div className="main-content flex-shrink">
+        <ol style={{ listStyle: `none` }}>
+          {posts.map((post) => {
+            const title = post.frontmatter.title || post.fields.slug;
+
+            return (
+              <li key={post.fields.slug}>
+                <article
+                  className="py-4 px-6 md:py-8 md:px-12 mb-8 bg-white rounded-md shadow-md"
+                  itemScope
+                  itemType="http://schema.org/Article"
+                >
+                  <header className="mb-3">
+                    <h2 className="font-display font-bold text-3xl mb-4 mt-0 text-primary">
+                      <Link
+                        className="hover:underline"
+                        to={post.fields.slug}
+                        itemProp="url"
+                      >
+                        <span itemProp="headline">{title}</span>
+                      </Link>
+                    </h2>
+                    <small className="byline">{post.frontmatter.date}</small>
+                  </header>
+                  <section>
+                    <div
+                      className="text-md font-body"
+                      // eslint-disable-next-line react/no-danger
+                      dangerouslySetInnerHTML={{
+                        __html: post.excerpt || post.frontmatter.description,
+                      }}
+                      itemProp="description"
+                    />
+                  </section>
+                  <footer>
+                    <p className="mb-0">
+                      <Link
+                        to={post.fields.slug}
+                        itemProp="url"
+                        className="font-display hover:underline text-sm"
+                      >
+                        Read more...
+                      </Link>
+                    </p>
+                  </footer>
+                </article>
+              </li>
+            );
+          })}
+        </ol>
+      </div>
+      <div className="sidebar flex-shrink-0">
+        <h3 className="font-display text-lg">I&apos;m a sidebar</h3>
+        <p className="text-gray-600">
+          Nisi eu excepteur enim duis sint enim ut elit nostrud. Irure ullamco
+          nostrud aute ullamco minim nulla.
+        </p>
+      </div>
     </Layout>
   );
 };
