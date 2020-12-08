@@ -24,7 +24,6 @@ const BlogPostTemplate = ({ data, location }) => {
       </div>
     );
   }
-  console.log('FOO:', post.frontmatter.hero_image);
   return (
     <Layout location={location} title={siteTitle}>
       <SEO
@@ -39,7 +38,9 @@ const BlogPostTemplate = ({ data, location }) => {
           itemType="http://schema.org/Article"
         >
           <header className="mb-3">
-            <Img fluid={post.frontmatter.hero_image.childImageSharp.fluid} />
+            {post.frontmatter.hero_image && (
+              <Img fluid={post.frontmatter.hero_image.childImageSharp.fluid} />
+            )}
             <h1
               itemProp="headline"
               className="font-display font-bold text-3xl mb-4 mt-0 text-primary"
