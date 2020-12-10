@@ -4,9 +4,16 @@ import { Link, graphql } from 'gatsby';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 
-const BlogIndex = ({ data, location }) => {
+const BlogIndex = (props) => {
+  const { data, location, pageContext } = props;
   const siteTitle = data.site.siteMetadata?.title || `Title`;
   const posts = data.allMarkdownRemark.nodes;
+  const { currentPage, numPages } = pageContext;
+  const isFirst = currentPage === 1;
+  const isLast = currentPage >= numPages;
+  const prevPage =
+    currentPage - 1 === 1 ? '/' : `/${(currentPage - 1).toString()}`;
+  const nextPage = `/${(currentPage + 1).toString()}`;
 
   if (posts.length === 0) {
     return (
@@ -75,6 +82,22 @@ const BlogIndex = ({ data, location }) => {
             );
           })}
         </ol>
+        <ul>
+          <li className="float-left">
+            {!isFirst && (
+              <Link to={prevPage} rel="prev">
+                ← Previous Page
+              </Link>
+            )}
+          </li>
+          <li className="float-right">
+            {!isLast && (
+              <Link to={nextPage} rel="next">
+                Next Page →
+              </Link>
+            )}
+          </li>
+        </ul>
       </div>
       <div className="sidebar flex-shrink-0">
         <h3 className="font-display text-lg">I&apos;m a sidebar</h3>
@@ -90,13 +113,17 @@ const BlogIndex = ({ data, location }) => {
 export default BlogIndex;
 
 export const pageQuery = graphql`
-  query {
+  query blogListQuery($skip: Int!, $limit: Int!) {
     site {
       siteMetadata {
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      limit: $limit
+      skip: $skip
+    ) {
       nodes {
         excerpt(format: HTML)
         fields {
@@ -106,6 +133,13 @@ export const pageQuery = graphql`
           date(formatString: "MMMM DD, YYYY")
           title
           description
+          hero_image {
+            childImageSharp {
+              fluid(maxWidth: 940) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
         }
       }
     }
