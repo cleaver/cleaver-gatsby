@@ -5,6 +5,7 @@ import Img from 'gatsby-image';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import Sidebar from '../components/sidebar';
+import TagLinks from '../components/tag-links';
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark;
@@ -57,7 +58,9 @@ const BlogPostTemplate = ({ data, location }) => {
             itemProp="articleBody"
           />
           <hr />
-          <footer />
+          <footer>
+            <TagLinks tags={post.frontmatter.tags} />
+          </footer>
         </article>
         <nav className="blog-post-nav">
           <ul
@@ -115,6 +118,7 @@ export const pageQuery = graphql`
         author
         date(formatString: "MMMM DD, YYYY")
         description
+        tags
         sidebar {
           title
           body

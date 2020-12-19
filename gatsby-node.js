@@ -24,6 +24,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             }
           }
         }
+        tagsGroup: allMarkdownRemark(limit: 2000) {
+          group(field: frontmatter___tags) {
+            fieldValue
+          }
+        }
       }
     `
   );
@@ -74,6 +79,22 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         skip: i * postsPerPage,
         numPages,
         currentPage: i + 1,
+      },
+    });
+  });
+
+  // Create tag pages
+  const tags = result.data.tagsGroup.group;
+  const tagTemplate = path.resolve('./src/templates/tags.jsx');
+  tags.forEach((tag) => {
+    const tagPath = `/tags/${tag.fieldValue
+      .toLowerCase()
+      .replace(/\s+/gi, '-')}`;
+    createPage({
+      path: tagPath,
+      component: tagTemplate,
+      context: {
+        tag: tag.fieldValue,
       },
     });
   });
