@@ -33,7 +33,7 @@ const BlogIndex = (props) => {
       <SEO title="All posts" />
 
       <div className="main-content flex-shrink">
-        <ol style={{ listStyle: `none` }}>
+        <ol className="list-none">
           {posts.map((post) => {
             const title = post.frontmatter.title || post.fields.slug;
 

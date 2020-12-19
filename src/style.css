@@ -1,11 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* stylelint-disable unit-whitelist */
+:root {
+  --container-width: 1280px;
+  --base-font-size: 20px;
+  --title-font-size: 350%;
+}
+/* stylelint-enable unit-whitelist */
 
 html {
   @apply font-body;
   @apply text-gray-800;
-  font-size: 20px;
+  font-size: var(--base-font-size);
 }
 
 article {
@@ -30,7 +37,8 @@ code {
 
 .cbcontainer {
   @apply px-4 mx-auto;
-  max-width: 1280px;
+  width: 100%;
+  max-width: var(--container-width);
 }
 
 .sidebar {
@@ -43,11 +51,11 @@ code {
 .main-heading {
   color: rgba(0, 168, 255, 0.5);
   font-family: 'Impact', 'Helvetica Neue', 'helvetica', 'Arial', sans-serif;
-  font-size: 400%;
+  font-size: var(--title-font-size);
   font-weight: bold;
   margin: 0;
   text-decoration: none;
-  text-shadow: 6px 0px 0 rgba(255, 0, 180, 0.5);
+  text-shadow: 0.3rem 0 0 rgba(255, 0, 180, 0.5);
 }
 
 .byline {
