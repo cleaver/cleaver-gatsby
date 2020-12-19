@@ -5,7 +5,6 @@ const Sidebar = ({ children, omitDefault }) => {
   if (!omitDefault) {
     defaultSidebar = (
       <div>
-        <h3 className="font-display text-primary text-lg"></h3>
         <p className="text-gray-600">
           I use{' '}
           <a href="https://www.digitalocean.com/?refcode=0601bc016218">

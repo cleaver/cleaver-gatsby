@@ -36,8 +36,7 @@ code {
 }
 
 .cbcontainer {
-  @apply px-4 mx-auto;
-  width: 100%;
+  @apply px-4 mx-auto w-full;
   max-width: var(--container-width);
 }
 
