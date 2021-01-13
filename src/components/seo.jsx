@@ -72,7 +72,7 @@ const SEO = ({ description, lang, meta, title }) => {
         },
       ].concat(meta)}
     >
-      <body className="bg-indigo-50" />
+      <body className="" />
     </Helmet>
   );
 };

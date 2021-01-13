@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
+import Img from 'gatsby-image';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
+import Sidebar from '../components/sidebar';
 
 const BlogIndex = (props) => {
   const { data, location, pageContext } = props;
@@ -32,29 +34,37 @@ const BlogIndex = (props) => {
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
 
-      <div className="main-content flex-shrink">
+      <div className="main-content">
         <ol className="list-none">
           {posts.map((post) => {
             const title = post.frontmatter.title || post.fields.slug;
-
+            const link = `/blog${post.fields.slug}`;
             return (
-              <li key={post.fields.slug}>
+              <li key={link}>
                 <article
-                  className="py-4 px-6 md:py-8 md:px-12 mb-8 bg-white rounded-md shadow-md"
+                  className="py-4 mx-2 md:pt-4 md:pb-4 border-b-2 border-indigo-200"
                   itemScope
                   itemType="http://schema.org/Article"
                 >
                   <header className="mb-3">
-                    <h2 className="font-display font-bold text-3xl mb-4 mt-0 text-primary">
+                    <h2 className="font-display font-bold text-2xl md:text-3xl mb-2 mt-0 text-primary">
                       <Link
-                        className="hover:underline"
-                        to={post.fields.slug}
+                        className="no-underline hover:underline"
+                        to={link}
                         itemProp="url"
                       >
                         <span itemProp="headline">{title}</span>
                       </Link>
                     </h2>
                     <small className="byline">{post.frontmatter.date}</small>
+                    {post.frontmatter.hero_image && (
+                      <Img
+                        fluid={
+                          post.frontmatter.hero_image.childImageSharp.fluid
+                        }
+                        className="mt-2"
+                      />
+                    )}
                   </header>
                   <section>
                     <div
@@ -69,9 +79,10 @@ const BlogIndex = (props) => {
                   <footer>
                     <p className="mb-0">
                       <Link
-                        to={post.fields.slug}
+                        to={link}
                         itemProp="url"
                         className="font-display hover:underline text-sm"
+                        title={title}
                       >
                         Read more...
                       </Link>
@@ -85,27 +96,29 @@ const BlogIndex = (props) => {
         <ul>
           <li className="float-left">
             {!isFirst && (
-              <Link to={prevPage} rel="prev">
+              <Link
+                to={prevPage}
+                rel="prev"
+                className="font-display text-primary underline hover:no-underline"
+              >
                 ← Previous Page
               </Link>
             )}
           </li>
           <li className="float-right">
             {!isLast && (
-              <Link to={nextPage} rel="next">
+              <Link
+                to={nextPage}
+                rel="next"
+                className="font-display text-primary underline hover:no-underline"
+              >
                 Next Page →
               </Link>
             )}
           </li>
         </ul>
       </div>
-      <div className="sidebar flex-shrink-0">
-        <h3 className="font-display text-lg">I&apos;m a sidebar</h3>
-        <p className="text-gray-600">
-          Nisi eu excepteur enim duis sint enim ut elit nostrud. Irure ullamco
-          nostrud aute ullamco minim nulla.
-        </p>
-      </div>
+      <Sidebar className="col-span-1" omitDefault={false} />
     </Layout>
   );
 };

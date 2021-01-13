@@ -18,7 +18,7 @@ const TagsPage = ({
   return (
     <Layout location={location} title={title}>
       <SEO title="All tagged posts" />
-      <div className="main-content flex-grow">
+      <div className="main-content">
         <div className="mb-4">
           <div>
             <h1 className="font-display text-primary text-2xl mb-4 font-bold">

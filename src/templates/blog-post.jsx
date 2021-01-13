@@ -31,17 +31,19 @@ const BlogPostTemplate = ({ data, location }) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
-
-      <div className="main-content flex-shrink">
+      {post.frontmatter.hero_image && (
+        <Img
+          fluid={post.frontmatter.hero_image.childImageSharp.fluid}
+          className="col-span-4"
+        />
+      )}
+      <div className="main-content">
         <article
-          className="pb-4 md:pb-8 mr-8 mb-8"
+          className="pb-4 pt-2 md:mr-6 mb-2"
           itemScope
           itemType="http://schema.org/Article"
         >
           <header className="mb-3">
-            {post.frontmatter.hero_image && (
-              <Img fluid={post.frontmatter.hero_image.childImageSharp.fluid} />
-            )}
             <h1
               itemProp="headline"
               className="font-display font-bold text-3xl mb-4 mt-0 text-primary"
@@ -62,7 +64,7 @@ const BlogPostTemplate = ({ data, location }) => {
             <TagLinks tags={post.frontmatter.tags} />
           </footer>
         </article>
-        <nav className="blog-post-nav">
+        <nav className="mb-4">
           <ul
             style={{
               display: `flex`,
@@ -74,14 +76,22 @@ const BlogPostTemplate = ({ data, location }) => {
           >
             <li>
               {previous && (
-                <Link to={previous.fields.slug} rel="prev">
+                <Link
+                  to={`/blog${previous.fields.slug}`}
+                  rel="prev"
+                  className="font-display text-primary underline hover:no-underline"
+                >
                   ← {previous.frontmatter.title}
                 </Link>
               )}
             </li>
             <li>
               {next && (
-                <Link to={next.fields.slug} rel="next">
+                <Link
+                  to={`/blog${next.fields.slug}`}
+                  rel="next"
+                  className="font-display text-primary underline hover:no-underline"
+                >
                   {next.frontmatter.title} →
                 </Link>
               )}
@@ -89,7 +99,10 @@ const BlogPostTemplate = ({ data, location }) => {
           </ul>
         </nav>
       </div>
-      <Sidebar omitDefault={post.frontmatter.sidebar?.omit_default}>
+      <Sidebar
+        className="col-span-1"
+        omitDefault={post.frontmatter.sidebar?.omit_default}
+      >
         {sidebarExtra}
       </Sidebar>
     </Layout>

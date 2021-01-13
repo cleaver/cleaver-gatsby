@@ -17,7 +17,7 @@ const Tags = ({ pageContext, data, location }) => {
     <Layout location={location} title={siteTitle}>
       <SEO title={`Posts tagged with ${tag}`} />
 
-      <div className="main-content flex-shrink">
+      <div className="main-content">
         <div className="pb-4 md:pb-8 mr-8 mb-8">
           <h1 className="font-display text-primary text-2xl mb-4 font-bold">
             {tagHeader}
@@ -44,6 +44,7 @@ const Tags = ({ pageContext, data, location }) => {
         </div>
       </div>
       <Sidebar omitDefault={false} />
+      <div className="invisible" />
     </Layout>
   );
 };

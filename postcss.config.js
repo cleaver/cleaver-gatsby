@@ -16,8 +16,19 @@ module.exports = {
             display: ['Helvetica neue', 'helvetica', 'sans-serif'],
             body: ['tienne', 'Georgia', 'Cambria', 'serif'],
           },
+          borderWidth: {
+            // DEFAULT: '1px',
+            // 0: '0px',
+            // 2: '2px',
+            // 4: '4px',
+            10: '10px',
+            12: '12px',
+          },
+
           colors: {
             primary: '#5b64a5',
+            secondary: '#4b789b',
+            tertiary: '#83658b',
           },
           container: {
             center: true,
