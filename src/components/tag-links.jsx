@@ -13,7 +13,7 @@ const tagLinks = ({ tags }) => {
           {tags.map((tag) => {
             const link = `/tags/${formatPath(tag)}`;
             return (
-              <li className="inline mx-2">
+              <li key={tag} className="inline mx-2">
                 <Link to={link}>{tag}</Link>
               </li>
             );
