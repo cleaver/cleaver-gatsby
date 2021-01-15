@@ -55,6 +55,7 @@ const BlogPostTemplate = ({ data, location }) => {
             </small>
           </header>
           <section
+            className="mb-4"
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{ __html: post.html }}
             itemProp="articleBody"

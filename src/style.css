@@ -4,6 +4,7 @@
 /* stylelint-disable unit-whitelist */
 :root {
   --container-width: 1280px;
+  --breakpoint-md: 768px;
   --base-font-size: 20px;
   --title-font-size: 350%;
   --theme-blue: #4b789b;
@@ -19,11 +20,32 @@ html {
 }
 
 article {
+  h2 {
+    @apply text-2xl text-primary font-display mb-2;
+  }
+  h3 {
+    @apply text-xl text-primary font-display mb-2;
+  }
+  h4 {
+    @apply text-lg text-primary font-display mb-2;
+  }
   p {
     @apply mb-4;
   }
   a {
     @apply text-primary underline hover:no-underline;
+  }
+  ol {
+    @apply list-decimal ml-6;
+    li {
+      @apply mb-4;
+    }
+  }
+  ul {
+    @apply list-disc ml-6;
+    li {
+      @apply mb-4;
+    }
   }
 }
 
@@ -65,6 +87,12 @@ a > code.language-text {
   margin: 0;
   text-decoration: none;
   text-shadow: 0.15rem 0 0 var(--theme-red-op-50);
+}
+
+@media (min-width: 768px) {
+  .main-heading {
+    text-shadow: 0.3rem 0 0 var(--theme-red-op-50);
+  }
 }
 
 .byline {
