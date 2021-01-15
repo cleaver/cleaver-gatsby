@@ -81,7 +81,6 @@ a > code.language-text {
 .main-heading {
   color: var(--theme-blue-op-50);
   font-family: 'Impact', 'Helvetica Neue', 'helvetica', 'Arial', sans-serif;
-  /* font-size: var(--title-font-size); */
   @apply text-4xl md:text-6xl;
   font-weight: bold;
   margin: 0;
@@ -89,6 +88,7 @@ a > code.language-text {
   text-shadow: 0.15rem 0 0 var(--theme-red-op-50);
 }
 
+/* stylelint-disable-next-line */
 @media (min-width: 768px) {
   .main-heading {
     text-shadow: 0.3rem 0 0 var(--theme-red-op-50);
