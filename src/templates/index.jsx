@@ -9,7 +9,7 @@ import Sidebar from '../components/sidebar';
 const BlogIndex = (props) => {
   const { data, location, pageContext } = props;
   const siteTitle = data.site.siteMetadata?.title || `Title`;
-  const posts = data.allMarkdownRemark.nodes;
+  const posts = data.allFile.nodes;
   const { currentPage, numPages } = pageContext;
   const isFirst = currentPage === 1;
   const isLast = currentPage >= numPages;
@@ -37,8 +37,10 @@ const BlogIndex = (props) => {
       <div className="main-content">
         <ol className="list-none">
           {posts.map((post) => {
-            const title = post.frontmatter.title || post.fields.slug;
-            const link = `/blog${post.fields.slug}`;
+            const title =
+              post.childMarkdownRemark.frontmatter.title ||
+              post.childMarkdownRemark.fields.slug;
+            const link = `/blog${post.childMarkdownRemark.fields.slug}`;
             return (
               <li key={link}>
                 <article
@@ -56,11 +58,14 @@ const BlogIndex = (props) => {
                         <span itemProp="headline">{title}</span>
                       </Link>
                     </h2>
-                    <small className="byline">{post.frontmatter.date}</small>
-                    {post.frontmatter.hero_image && (
+                    <small className="byline">
+                      {post.childMarkdownRemark.frontmatter.date}
+                    </small>
+                    {post.childMarkdownRemark.frontmatter.hero_image && (
                       <Img
                         fluid={
-                          post.frontmatter.hero_image.childImageSharp.fluid
+                          post.childMarkdownRemark.frontmatter.hero_image
+                            .childImageSharp.fluid
                         }
                         className="mt-2"
                       />
@@ -71,7 +76,9 @@ const BlogIndex = (props) => {
                       className="text-md font-body"
                       // eslint-disable-next-line react/no-danger
                       dangerouslySetInnerHTML={{
-                        __html: post.excerpt || post.frontmatter.description,
+                        __html:
+                          post.childMarkdownRemark.excerpt ||
+                          post.childMarkdownRemark.frontmatter.description,
                       }}
                       itemProp="description"
                     />
@@ -132,24 +139,30 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
+    allFile(
+      sort: { fields: [childMarkdownRemark___frontmatter___date], order: DESC }
       limit: $limit
       skip: $skip
+      filter: {
+        childMarkdownRemark: { id: { ne: null } }
+        sourceInstanceName: { eq: "blog" }
+      }
     ) {
       nodes {
-        excerpt(format: HTML)
-        fields {
-          slug
-        }
-        frontmatter {
-          date(formatString: "MMMM DD, YYYY")
-          title
-          description
-          hero_image {
-            childImageSharp {
-              fluid(maxWidth: 940) {
-                ...GatsbyImageSharpFluid
+        childMarkdownRemark {
+          excerpt(format: HTML)
+          fields {
+            slug
+          }
+          frontmatter {
+            date(formatString: "MMMM DD, YYYY")
+            title
+            description
+            hero_image {
+              childImageSharp {
+                fluid(maxWidth: 940) {
+                  ...GatsbyImageSharpFluid
+                }
               }
             }
           }
