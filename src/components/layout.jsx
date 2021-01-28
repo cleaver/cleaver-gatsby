@@ -2,6 +2,8 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
+import Menu from './menu';
+
 import cc from '../../content/assets/cc.svg';
 import by from '../../content/assets/by.svg';
 import sa from '../../content/assets/sa.svg';
@@ -16,11 +18,18 @@ const Layout = ({ location, title, children }) => {
     'vertical-align': 'text-bottom',
   };
   const linkStyle = { display: 'inline-block' };
+  let activePath = null;
+  if (location.pathname.match(/^\/content\/about-me/)) {
+    activePath = 'about';
+  }
+  if (location.pathname.match(/^(\/blog|\/\d*$)/)) {
+    activePath = 'blog';
+  }
   let header;
 
   if (isRootPath) {
     header = (
-      <h1 className="main-heading">
+      <h1 className="main-heading inline-block">
         <Link to="/">{title}</Link>
       </h1>
     );
@@ -34,7 +43,10 @@ const Layout = ({ location, title, children }) => {
 
   return (
     <div className="cbcontainer" data-is-root-path={isRootPath}>
-      <header className="border-primary border-t-4 p-2">{header}</header>
+      <header className="border-primary border-t-4 p-2">
+        {header}
+        <Menu active={activePath} />
+      </header>
       {/* <main className="flex flex-col md:flex-row">{children}</main> */}
       <main className="grid grid-cols-1 md:grid-cols-4">{children}</main>
       <footer className="my-6">

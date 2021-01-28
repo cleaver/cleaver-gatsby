@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
 import Layout from '../components/layout';
@@ -10,7 +10,6 @@ import TagLinks from '../components/tag-links';
 const ContentTemplate = ({ data, location }) => {
   const post = data.markdownRemark;
   const siteTitle = data.site.siteMetadata?.title || `Title`;
-  const { previous, next } = data;
   let sidebarExtra;
   if (post.frontmatter.sidebar) {
     sidebarExtra = (
