@@ -12,11 +12,6 @@ import nc from '../../content/assets/nc.svg';
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`;
   const isRootPath = location.pathname === rootPath;
-  const imageStyle = {
-    height: '22px!important' /* stylelint-disable-line */,
-    'margin-left': '3px' /* stylelint-disable-line */,
-    'vertical-align': 'text-bottom',
-  };
   const linkStyle = { display: 'inline-block' };
   let activePath = null;
   if (location.pathname.match(/^\/content\/about-me/)) {
