@@ -1,0 +1,8 @@
+# Directories.
+diffs
+snapshot
+# Files.
+settings.yaml
+paths.txt
+failures.txt
+report.html
