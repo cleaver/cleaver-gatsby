@@ -6,19 +6,23 @@ tags:
   - Drupal 7
   - GatsbyJS
 author: Cleaver Barnes
-hero_image: "./gatsby.jpg"
-hero_caption: Gatsby
+hero_image: "./static.jpg"
+hero_caption: Static site
 sidebar:
   title: Links
   body: "[Gatsby](https://gatsbyjs.org) static site generator.<br /> [Source code](https://github.com/cleaver/cleaver-gatsby) for this site.<br /> [How to GraphQL](https://www.howtographql.com/) on querying content.<br /> [Tailwind CSS](https://tailwindcss.com/)."
   omit_default: false
 ---
+*Image credit: Televisions with Static by [Alpha](https://www.flickr.com/photos/10559879@N00/3074274626) - CC BY-SA 2.0*
+
+I'm migrating this website from Drupal to [Gatsby.js](https://gatsbyjs.org).
 ## Why Switch from Drupal?
 
 This site has been running on Drupal 7 for almost exactly 10 years. I originally created it to get a [free beer](/blog/drupal-hookpagealter-example) at the [Drupal 7 release party](https://groups.drupal.org/node/113014) on January 11, 2011. Not a bad run and Drupal 7 still has nearly [2 years left before EOL](https://www.drupal.org/psa-2019-02-25).
 
 The main reasons to switch away from Drupal are:
 
+<!-- more -->
 - Drupal has become more of an enterprise-level tool and this site isn't exactly "enterprise". I don't even need a CMS.
 - I've been working on a lot of other technologies since 2011.
 - It's hard to beat the performance and security of a static site.
@@ -32,13 +36,16 @@ I initially considered a conventional static site generator that takes markdown 
 
 Next, I looked at JavaScript site generators that build a cross between a static site and a Single-Page App. I looked at [VuePress](https://vuepress.vuejs.org/), since I'm familiar with Vue. It could do the job, but it is focused on building documentation sites. I don't like forcing frameworks to do what they're not intended to, so I dropped this one.
 
-Gatsby was always a consideration, since it is popular and has a wide array of plugins and integrations. It also uses React for its JavaScript framework. Out of the major JS frameworks, React is the one I'm least familiar with. For basic components, React is extremely easy to use and this would be a great opportunity to get some more experience. In addition to React,
+Gatsby was always a consideration, since it is popular and has a wide array of plugins and integrations. It also uses React for its JavaScript framework. Out of the major JS frameworks, React is the one I'm least familiar with. For basic components, React is extremely easy to use and this would be a great opportunity to get some more experience. In addition to React, I got to try out TailwindCSS.
+
+On this new Gatsby site as with many static site generators, the content is in the form of Markdown files. Since I'm using a programming editor (VSCode) and on GitHub all day, I find it easier than logging in to my Drupal site and navigating the admin interface.
 
 In summary:
 
 - Speed - one of the best things I can do for people reading the blog is to make it fast.
 - Simplicity - no database, no cookies, just a web page.
 - Learning - beef up my React experience.
+- Ease-of-use - the posts here are just markdown files.
 
 The one thing I might be stretching a bit is "simplicity". The [source code](https://github.com/cleaver/cleaver-gatsby) for this site shows it's not so simple. More on that in a future post.
 

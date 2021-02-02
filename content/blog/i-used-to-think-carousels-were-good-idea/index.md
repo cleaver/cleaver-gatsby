@@ -10,7 +10,7 @@ hero_image: "./image.jpg"
 hero_caption: Scary carousel
 sidebar:
   title: Links
-  body: [Should I Use a Carousel?](http://shouldiuseacarousel.com/).
+  body: "[Should I Use a Carousel?](http://shouldiuseacarousel.com/)."
   omit_default: false
 ---
 *Image credit: "Paardenmolen bobbejaanland". [Wikipedia](https://commons.wikimedia.org/wiki/File:Paardenmolen_bobbejaanland.jpg#file)*
