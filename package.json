@@ -35,6 +35,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.0.3",
+    "dotenv-cli": "^4.0.0",
     "eslint": "^7.14.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^6.15.0",
@@ -67,6 +68,7 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "sitediff diff",
+    "deploy": "dotenv -- bash -c 'rsync -e ssh -av $RSYNC_OPTIONS ./public/ $DEPLOY_PATH'"
   }
 }
