@@ -37,4 +37,4 @@ tl;dr - Lots of people clicking, but not many buying.
  * The pending credits have been piling up, but I haven't actually received much of that.
 
 ##Summary
-To date (January 2021), I have made $175 that was applied directly to hosting. I'm currently on the $10/month VPS. Not exactly covering costs, but I'm happy with the result so far.
+To date (February 2021), I have made $175 that was applied directly to hosting. I'm currently on the $10/month VPS. Not exactly covering costs, but I'm happy with the result so far.
