@@ -12,6 +12,7 @@ module.exports = {
   },
   plugins: ['prettier'],
   rules: {
+    'no-use-before-define': 'off', // this rule makes for less readable code
     'react/prop-types': 'off',
     'react/no-danger': 'off',
     'prettier/prettier': ['error'],
