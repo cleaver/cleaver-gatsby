@@ -38,13 +38,15 @@ const Layout = ({ location, title, children }) => {
 
   return (
     <div className="cbcontainer" data-is-root-path={isRootPath}>
-      <header className="border-primary border-t-4 p-2">
+      <header className="border-primary border-t-4 p-2 flex-none">
         {header}
         <Menu active={activePath} />
       </header>
       {/* <main className="flex flex-col md:flex-row">{children}</main> */}
-      <main className="grid grid-cols-1 md:grid-cols-4">{children}</main>
-      <footer className="my-6">
+      <main className="grid grid-cols-1 md:grid-cols-4 flex-grow">
+        {children}
+      </main>
+      <footer className="my-6 flex-none">
         <p className="font-display text-sm">
           <a
             className="text-primary hover:underline"
