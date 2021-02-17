@@ -4,3 +4,22 @@ before:
 after:
   url: http://localhost:9000
 settings: {}
+
+dom_transform:
+  - title: Ignore head
+    type: remove
+    selector: 'html head'
+
+  - title: Ignore footer scripts
+    type: remove
+    selector: body > script
+
+  - title: Remove class 2022/02/17 changes part 1
+    type: remove_class
+    selector: header, footer
+    class: flex-none
+
+  - title: Remove class 2022/02/17 changes part 2
+    type: remove_class
+    selector: main
+    class: flex-grow
