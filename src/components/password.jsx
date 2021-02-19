@@ -10,13 +10,13 @@ const Password = ({ isOpen, handleCloseModal, handleChange, handleSubmit }) => {
         onRequestClose={handleCloseModal}
         className="cbmodal"
       >
-        <form onSubmit={(e) => handleSubmit(e)}>
+        <form onSubmit={handleSubmit}>
           <label htmlFor="password" className="font-display text-primary">
             Password
             <input
               id="password"
               name="password"
-              onChange={(e) => handleChange(e)}
+              onChange={handleChange}
               type="password"
               className="cbmodal__input"
             />
