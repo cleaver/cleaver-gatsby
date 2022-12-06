@@ -66,6 +66,7 @@ module.exports = {
         icon: 'src/images/gatsby-icon.png',
       },
     },
+    `gatsby-plugin-catch-links`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-feed`,
     {

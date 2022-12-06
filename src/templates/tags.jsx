@@ -29,7 +29,7 @@ const Tags = ({ pageContext, data, location }) => {
               return (
                 <li key={slug}>
                   <h2 className="mb-2 mt-0 text-primary hover:underline">
-                    <Link to={slug}>{title}</Link>
+                    <Link to={`/blog${slug}`}>{title}</Link>
                   </h2>
                 </li>
               );
