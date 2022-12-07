@@ -13,7 +13,10 @@ hero_image: "./subway.jpg"
 hero_caption: Man descends stairs in Tokyo subway.
 sidebar:
   title: Links
-  body: "[Gatsby](https://gatsbyjs.org) static site generator.<br /> [Source code](https://github.com/cleaver/cleaver-gatsby) for this site.<br />[NextJS](https://nextjs.org/)."
+  body: |
+    - [Gatsby](https://gatsbyjs.org) static site generator.
+    - [Source code](https://github.com/cleaver/cleaver-gatsby) for this site.
+    - [NextJS](https://nextjs.org/) another great tool.
   omit_default: false
 ---
 *Image credit: [Giuseppe Milo](https://flic.kr/p/22wz5ho)*
