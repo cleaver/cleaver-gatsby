@@ -18,7 +18,7 @@ sidebar:
 ---
 *Image credit: [Pascal van de Vendel](https://unsplash.com/@pascalvendel)*
 
-I use MacOS for most of my work and one annoying thing that has been slowly creeping up on me is the slow logins when I open a new terminal window. Finally, I reached the breaking point when it seemed like every new terminal login was taking several seconds. It felt like 10 seconds, but was probably over five. I had to act.
+I use MacOS for most of my work and one annoying thing slowly creeping up on me is how slow it is to open a new terminal window. Finally, I reached the breaking point when it seemed like every new terminal login was taking several seconds. Small delays like this can really break you out of your flow. I had to take action.
 
 <!-- more -->
 
