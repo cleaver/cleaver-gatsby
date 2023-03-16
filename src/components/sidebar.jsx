@@ -6,12 +6,9 @@ const Sidebar = ({ children, omitDefault }) => {
     defaultSidebar = (
       <div>
         <p className="text-gray-600 mt-4">
-          I use{' '}
-          <a href="https://www.digitalocean.com/?refcode=0601bc016218">
-            Digital Ocean
-          </a>{' '}
-          to host this site. (
-          <a href="/content/digital-ocean-referrals">About this.</a>)
+          <a href="/content/digital-ocean-referrals">
+            Notes on hosting for this site.
+          </a>
         </p>
       </div>
     );
