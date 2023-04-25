@@ -5,6 +5,7 @@ date: 2014-09-16
 tags:
   - Web Development
   - Web Design
+  - opinion
 author: Cleaver Barnes
 hero_image: "./image.jpg"
 hero_caption: Scary carousel
