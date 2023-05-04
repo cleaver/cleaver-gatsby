@@ -1,6 +1,6 @@
 ---
 title: "Is Promise-chaining Better Than async/await?"
-description: Which is the better programming practice for JavaScript? Promise chain or async/await.
+description: Which is the better programming practice for JavaScript? Promise chain or async/await?
 date: 2023-04-24
 tags:
   - JavaScript
