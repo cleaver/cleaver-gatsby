@@ -20,6 +20,8 @@ sidebar:
 
 Note: I started writing an article about [what you lose if you switch to a static site](/blog/what-do-you-lose-static-site), but realized that there were a few things I should explain first.
 
+*Update: This is already a bit outdated. Since I've started working with NextJS, I realized there are more ways to look at static sites. With NextJS (or Nuxt or SvelteKit...) you can add in Server-Side Rendering (SSR) and other techniques to inject up-to-date content into your static site. I'll keep this article for now, as it focuses on the content sources, but I'll focus on topics beyond simple static sites in the future.*
+
 ## The Two Models
 
 All static site generators take content stored _somehow_ and from that create a website that doesn't change until the next time the website is built. The difference is in how the content is stored. This leaves us with two main models.
